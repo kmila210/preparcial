@@ -20,7 +20,7 @@ public class Policia implements Recurso{
 
 	@Override
 	public double calcularCosto() {
-		double precio = 500;
+		double precio = this.facturacion;;
 		if(this.tiempoRespuestaMinutos > 50) {
 			precio = precio * 0.5;
 		}

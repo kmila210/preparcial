@@ -12,7 +12,7 @@ public class Usuario extends Persona {
 		super(nombre, apellido, dni);
 		this.obraSocial = obraSocial;
 		this.recurso = recurso;
-		this.facturaUsuario = facturaUsuario;
+		this.facturaUsuario = facturacion();
 	}
 	
 	public Usuario() {
@@ -24,11 +24,26 @@ public class Usuario extends Persona {
 	public void setObraSocial(String obraSocial) {this.obraSocial = obraSocial;}
 
 	public ArrayList<Recurso> getRecurso() {return recurso;}
-	public void setRecurso(ArrayList<Recurso> recurso) {this.recurso = recurso;}
+	public void setRecurso(ArrayList<Recurso> recurso) {this.recurso = recurso; this.facturaUsuario = facturacion();}
 
 	public double getFacturaUsuario() {return facturaUsuario;}
 	public void setFacturaUsuario(double facturaUsuario) {this.facturaUsuario = facturaUsuario;}
 	
+	public double facturacion() {
+		double total = 0;
+		for( Recurso r : recurso) {
+			if(r instanceof Ambulancia) {
+				if(obraSocial == null) {
+					total += r.calcularCosto() + 1000;
+				}else {
+					total += r.calcularCosto();				}
+			}else {
+				total += r.calcularCosto();
+			}
+		}
+		return this.facturaUsuario = total;
+	}
 	
-
 }
+
+

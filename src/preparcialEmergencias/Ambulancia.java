@@ -20,7 +20,7 @@ public class Ambulancia implements Recurso{
 
 	@Override
 	public double calcularCosto() {
-		double precio = 5000;
+		double precio = this.facturacion;
 		if(this.tiempoRespuestaMinutos > 50) {
 			precio = precio * 0.5;
 		}

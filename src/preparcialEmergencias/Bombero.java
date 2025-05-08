@@ -20,7 +20,7 @@ public class Bombero implements Recurso{
 
 	@Override
 	public double calcularCosto() {
-		double precio = 600;
+		double precio = this.facturacion;
 		if(this.tiempoRespuestaMinutos > 50) {
 			precio = precio * 0.5;
 		}
